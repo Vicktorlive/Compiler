@@ -8,6 +8,7 @@
   </div>
   <div class="col-md-6" style="margin-top:32px">
 
+<pre><?php print_r($result);?></pre>
     <?php foreach($result as $resutls): ?>
         <?php foreach($resutls as $resultado):?>
           <?php echo$resultado['Valor'];?> como <?php echo $resultado['Tipo'];?><br>
