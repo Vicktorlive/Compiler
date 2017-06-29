@@ -13,3 +13,19 @@
     <center><input type="submit" name="sumbit" class="btn btn-primary btn-lg btn-block" value="Aceptar"></input></center><br><br>
 </form>
 </div>
+
+<script type="text/javascript">
+	$('#guardar').click(function() {
+		$.post('<?php echo base_url(); ?>pages/guardar_producto',{
+			nombre: $('#nombre').val(),
+			marca: $('#marca').val(),
+			categoria: $('#categoria').val(),
+			descripcion: $('#descripcion').val(),
+			foto: $('#foto').val(),
+			precio: $('#precio').val(),
+			cantidad: $('#cant').val()
+		}, function(answer) {
+			alert(answer);
+		});
+	});
+</script>
