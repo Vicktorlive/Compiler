@@ -27,7 +27,7 @@ class CompilerC extends CI_Controller
   public function viewValues($page = 'values')
   {
 
-    $data['title'] = ucfirst($page);
+    $data['title']  = ucfirst($page);
     $data['lexico'] = $this->compilerM->get_values();
 
     $this->load->view('templates/header',$data);
@@ -35,6 +35,10 @@ class CompilerC extends CI_Controller
     $this->load->view('templates/footer',$data);
   }
 
+   /**
+    * Form create new DB entry
+    * @return [type] [description]
+    */
   public function create()
   {
     $this->load->helper('form');

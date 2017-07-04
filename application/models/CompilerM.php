@@ -20,7 +20,7 @@ class compilerM extends CI_Model
   {
     $data = array(
       'Valor' => $this->input->post('insert'),
-      'Tipo' => $this->input->post('tipo')
+      'Tipo'  => $this->input->post('tipo')
     );
 
     return $this->db->insert('lexico',$data);
@@ -28,41 +28,41 @@ class compilerM extends CI_Model
 
   public function leer_bd()
   {
-    $lexicoOrg = $this->input->post('leer');
-    $lexico = explode(" ",$this->input->post('leer'));
+    $lexicoOrg   = $this->input->post('leer');
+    $lexico      = explode(" ",$this->input->post('leer'));
     $resultarray = array();
     foreach ($lexico as $lexicoC) {
 
-  //      $result= array($array);
-  //  }else{
+  // $result                  = array($array);
+  // }else{
       $this->db->select('*');
       $this->db->from('lexico');
       $this->db->where("Valor ='".$lexicoC."'");
-      $query = $this->db->get();
-      $result= $query->result_array();
+      $query  = $this->db->get();
+      $result = $query->result_array();
 
       array_push($resultarray,$result);
       if ($lexicoC == "while" || $lexicoC == "if" || $lexicoC == "for")
       {
-          $in = strlen($lexicoC);
+          $in      = strlen($lexicoC);
           $iniciar = $in + 1;
-          $first = substr($lexicoOrg,$iniciar,1);
-          $last  = substr($lexicoOrg,-1,1);
+          $first   = substr($lexicoOrg,$iniciar,1);
+          $last    = substr($lexicoOrg,-1,1);
           if ($last != ")")
           {
               $array = array(
                 'Valor' => 'Null',
-                'Tipo' => "Se esperaba )"
+                'Tipo'  => "Se esperaba )"
               );
-              $result= array($array);
+              $result = array($array);
           }
           if ($first != '(')
           {
             $array = array(
               'Valor' => 'Null',
-              'Tipo' => "Se esperaba ("
+              'Tipo'  => "Se esperaba ("
             );
-            $result= array($array);
+            $result = array($array);
           }
           array_push($resultarray,$result);
       }
