@@ -10,6 +10,6 @@
         <option value="Instruccion">Instruccion</option>
         <<option value="Operador">Operador</option>
     </select>
-    <center><input type="submit" name="sumbit" class="btn btn-primary btn-lg btn-block" value="Aceptar"></input></center><br><br>
+    <center><input type="submit" name="sumbit" id="guardar" class="btn btn-primary btn-lg btn-block" value="Aceptar"></input></center><br><br>
 </form>
 </div>
