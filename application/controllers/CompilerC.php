@@ -57,7 +57,7 @@ class CompilerC extends CI_Controller
     else {
     //  $this->compilerM->set_bd();
       $this->compilerM->set_bd();
-      $this->load->view('compiler/successbd');
+      //$this->load->view('compiler/successbd');
     }
   }
 
